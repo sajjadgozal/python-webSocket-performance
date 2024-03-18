@@ -131,7 +131,7 @@ if __name__ == "__main__":
     }
 
     payload_sizes = [500, 1000, 10000, 30000, 50000, 100000]
-    sample_count = 100
+    sample_count = 1
 
     resource_monitoring_thread = threading.Thread(target=monitor_resource_usage, daemon=True)
     resource_monitoring_thread.start()
@@ -141,7 +141,7 @@ if __name__ == "__main__":
         all_results.append(run_tests(urls, payload_sizes))
     results = sample_mean(all_results)
 
-    print(results)
+    # print(results)
 
     show_statistics(results)
     plot_resource_usage(results)
