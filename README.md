@@ -15,12 +15,10 @@ The objective of this study was to assess the performance and limitations of two
 
 I selected aiohttp and FastAPI based on extensive research and industry recommendations. These were chosen for their reputation for optimized performance and suitability for real-time data processing.
 
-
 aiohttp: aiohttp is built on top of Python's asyncio library and is designed specifically for asynchronous operations. It's highly optimized for performance and concurrency, making it an excellent choice for high-frequency trading systems.
 
 [![GitHub stars](https://img.shields.io/github/stars/aio-libs/aiohttp.svg)](https://github.com/aio-libs/aiohttp)
 [![Downloads](https://static.pepy.tech/badge/aiohttp/month)](https://pepy.tech/project/aiohttp)
-
 
 
 FastAPI: FastAPI leverages Starlette for the underlying asynchronous functionality. Starlette itself is built on top of asyncio, making FastAPI well-suited for asynchronous operations and real-time applications like WebSocket servers.
@@ -39,7 +37,17 @@ For the evaluation, I designed a test environment that closely resembles our pro
   - **Operating System:** Macintosh HD 14.3.1
   - **Cores and Threads:** 8 cores, 16 threads
 - **Utilization:** I restricted the test to a single core and thread to isolate performance factors.
+- **Number of Test Iterations:** 100
 
+
+## Python Environment:
+Python version: 3.9.6
+Required packages: aiohttp uvicorn fastapi websocket asyncio numpy websocket-client matplotlib
+
+run : pip install -r requirements.txt
+
+## OS Environment:
+Required: wrk
 
 ## Files
 
@@ -86,14 +94,21 @@ For the evaluation, I designed a test environment that closely resembles our pro
 1. **Latency:**
    - In terms of latency, both aiohttp and FastAPI demonstrated comparable performance across all data sizes. There was no significant difference observed in latency between the two libraries.
 
+   ![Latency Image](graphs/latency.png)
+
 2. **Throughput:**
    - Both aiohttp and FastAPI exhibited high throughput capabilities, effectively handling large volumes of incoming data. The performance in terms of throughput was similar for both libraries.
+
+    ![Throughput Image](graphs/throughput.png)
 
 3. **Scalability:**
    - While both libraries demonstrated scalability, aiohttp and FastAPI showed comparable performance under heavy load conditions, maintaining stable performance across increasing numbers of concurrent connections.
 
 4. **Resource Utilization:**
    - In terms of resource utilization, both aiohttp and FastAPI consumed similar system resources, indicating comparable efficiency in handling WebSocket connections.
+
+    ![Resource Image](graphs/system.png)
+
 
 
 ## Conclusion:

@@ -38,7 +38,8 @@ async def profiler_middleware(app, handler):
             print(profiler.output_text(unicode=True, color=True))
     return middleware_handler
 
-app = web.Application(middlewares=[profiler_middleware])
+# app = web.Application(middlewares=[profiler_middleware])
+app = web.Application()
 app.add_routes([web.get('/', handle)])
 app.add_routes([web.get('/ws', websocket_handler)])
 

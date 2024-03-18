@@ -13,7 +13,7 @@ class ProfilerMiddleware(BaseHTTPMiddleware):
         print(profiler.output_text(unicode=True, color=True))
         return response
 
-app.add_middleware(ProfilerMiddleware)
+# app.add_middleware(ProfilerMiddleware)
 
 
 @app.websocket("/ws")
